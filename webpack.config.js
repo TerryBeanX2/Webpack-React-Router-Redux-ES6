@@ -13,6 +13,7 @@ module.exports = {
     output: {
         path: __dirname + '/build', //打包后的文件存放的地方
         filename: '[name].bundle.js', //打包后输出文件的文件名
+        // publicPath:__dirname+'./public',
         chunkFilename: '[name].[chunkhash:5].chunk.js'
     },
 
