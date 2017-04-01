@@ -3,6 +3,7 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");  //css单独打包
 var HtmlWebpackPlugin = require('html-webpack-plugin'); //生成html
 var webpack = require('webpack');
+
 module.exports = {
     devtool: 'eval',
     entry: {
@@ -16,7 +17,6 @@ module.exports = {
         // publicPath:__dirname+'./public',
         chunkFilename: '[name].[chunkhash:5].chunk.js'
     },
-
     module: {
         rules: [
             {
@@ -46,17 +46,16 @@ module.exports = {
     },
     devServer: {
         contentBase: './',  //本地服务器所加载的页面所在的目录
-        host:'172.16.218.67',
+        host: '172.16.218.67',
         port: 8080,
         historyApiFallback: true,  //不跳转
         inline: true,  //实时刷新
-        open: true,
         proxy: {
             '/api': {
                 target: 'https://cnodejs.org/api/v1',
                 secure: false,
                 changeOrigin: true,
-                host:'cnodejs.org'
+                host: 'cnodejs.org'
             }
         }
     },
@@ -65,7 +64,13 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: function () {
-                    return [require('autoprefixer')];
+                    return [
+                        // require('postcss-pxtorem')({
+                        //     rootValue: 100,
+                        //     propWhiteList: []
+                        // }),
+                        require('autoprefixer')
+                    ];
                 }
             }
         }),
@@ -74,5 +79,6 @@ module.exports = {
             template: './src/templates/index.html', //html模板路径
             hash: true,    //为静态资源生成hash值
         })
-    ]
+    ],
+
 };
