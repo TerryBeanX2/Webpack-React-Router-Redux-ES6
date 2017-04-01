@@ -4,6 +4,13 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");  //css单独打�
 var HtmlWebpackPlugin = require('html-webpack-plugin'); //生成html
 var webpack = require('webpack');
 
+const path = require('path');
+
+const svgDirs = [
+    require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
+    // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
+];
+
 module.exports = {
     devtool: 'eval',
     entry: {
@@ -41,13 +48,18 @@ module.exports = {
                     fallback: "style-loader",
                     use: ['css-loader', 'postcss-loader', 'sass-loader']
                 })
-            }
+            },
+            {
+                test: /\.(svg)$/i,
+                use: 'svg-sprite-loader',
+                include: svgDirs,  // 把 svgDirs 路径下的所有 svg 文件交给 svg-sprite-loader 插件处理
+            },
         ]
     },
     devServer: {
         contentBase: './',  //本地服务器所加载的页面所在的目录
-        host: '172.16.218.67',
-        port: 8080,
+        host: 'localhost',
+        port: 8888,
         historyApiFallback: true,  //不跳转
         inline: true,  //实时刷新
         proxy: {
@@ -65,10 +77,10 @@ module.exports = {
             options: {
                 postcss: function () {
                     return [
-                        // require('postcss-pxtorem')({
-                        //     rootValue: 100,
-                        //     propWhiteList: []
-                        // }),
+                        require('postcss-pxtorem')({
+                            rootValue: 100,
+                            propWhiteList: []
+                        }),
                         require('autoprefixer')
                     ];
                 }
@@ -80,5 +92,8 @@ module.exports = {
             hash: true,    //为静态资源生成hash值
         })
     ],
-
+    resolve: {
+        modules: ['node_modules', path.join(__dirname, '../node_modules')],
+        extensions: [ '.web.js', '.js', '.json'],
+    },
 };
