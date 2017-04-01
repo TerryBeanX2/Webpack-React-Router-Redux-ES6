@@ -6,7 +6,9 @@ export default class Home extends React.Component{
     render(){
         return(
             <div>
-                <span className="badge">5</span>
+                <div data-flex="main:center cross:center" style={{width:"500px", height: "500px", background: "#f1d722"}}>
+                    <div>看看我是不是居中的</div>
+                </div>
             </div>
         )
     }
