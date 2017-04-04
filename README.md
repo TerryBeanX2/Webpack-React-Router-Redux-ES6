@@ -73,6 +73,6 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
       3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看
   
   
-不要忘了点STAR！！！
+希望得到你的STAR
 --------------
-这次很用心的做了一个作品，希望得到同仁们的肯定，不要吝啬你们的<b>Star</b>~快去点它！！！
+这次很用心的做了一个作品，希望得到同仁们的肯定，不要吝啬你们的<b>Star</b>~去点它吧~
