@@ -7,7 +7,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima.png)<br/>
   
-  借来的一个服务器，贼拉慢，Gzip也开不起来(不开Gzip加载速度慢了三倍以上)，多等一会儿吧~！<br/>
+  借来的一个服务器，贼拉慢，Gzip也开不起来(不开Gzip加载速度慢了三倍以上)，<b>耐心等一会儿吧~！</b><br/>
   首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332)。<br/>
   
 使用的技术栈：
@@ -46,16 +46,16 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
 作品实现的功能：
 ----------------
 
-    1、首页：上拉无限加载，文章分类显示，点击条目进入文章详情，实现回退/Tab切换后，回到记录的滚动位置。
+    1、首页：上拉无限加载(目前没做下拉刷新)，文章分类显示，点击条目进入文章详情，实现回退/Tab切换后，回到记录的滚动位置。
     2、文章详情页：显示文章详情和评论，登录情况下可以收藏/取消收藏，提供回退功能。(评论点赞和回复功能暂时没有实现)
     3、收藏页：显示已经收藏的文章，点击条目进入文章详情。
-    4、消息页：(暂时没有实现消息功能)。
+    4、消息页：(目前没做跟消息有关的功能)。
     5、我的：只提供了显示头像和退出功能。
     6、登录：实现了登录功能，没有登录的情况下，进入无权限的页面会跳转到登录页面。
-    7、其他：Iphone体验良好，没有考虑android的情况，比如按需进行body滚动等等。
-  
-  
-  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1595.PNG)
+    *、其他：首页长列表Iphone体验良好(回到顶部是缺陷)，没有考虑android的情况，比如按需进行body滚动等等。
+    *、后期规划：不定期完善剩余功能，也有可能转战RN，下一步打算做一个思维导图，梳理一下架构思路。
+    
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1595.PNG)
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1596.PNG)
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1597.PNG)
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1598.PNG)
