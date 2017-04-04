@@ -6,10 +6,10 @@ webpack2+react+react-router+react-redux+ES6版本的Cnode
   或者扫码：<br/>
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima.png)<br/>
   贼慢的一个服务器，Gzip也开不起来，多等一会儿吧~<br/>
-  首先感谢CNode提供的API，以及react china众多例子带来的想法。<br/>
+  首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的想法。<br/>
   
   使用的技术栈：<br/>
-  <b>webpack</b>：更新到2版本，网上目前大多数教程都是1版本的配置写法。<br/>
+  <b>webpack</b>：更新到2版本，网上目前大多数webpack-react教程都是1版本的配置写法。<br/>
   <b>react</b>：谁用谁知道。<br/>
   <b>react-router</b>：激进的我一边查阅4版本的英文文档一边做demo，发现改动太大，国内连issue几乎都没有，所以我鸟悄的退回到3版本使用。<br/>
   <b>react-redux</b>：挑战所在，因为我从事前端近三年，本身的业务却很少接触react，加上redux，这次对我来说是开发思维的变革。<br/>
@@ -36,4 +36,9 @@ webpack2+react+react-router+react-redux+ES6版本的Cnode
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1603.PNG)
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1604.PNG)
   
-  
+  在此开放源码，提供给有兴趣一起研究的coder们，主要部分我都进行了注释。<br/>
+  快速实现本地dev模式运行我的源码三步走：<br/>
+  1、打开你的git输入 git@github.com:TerryBeanX2/Webpack-React-Router-Redux-ES6.git 克隆我的仓库；<br/>
+  2、命令行 npm install <br/>
+  3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看<br/>
+  
