@@ -1,28 +1,56 @@
 import {combineReducers} from 'redux';
-import {localItem,removeLocalItem} from '../utils/myUtil';
+import {localItem, removeLocalItem} from '../utils/myUtil';
 const reducers = combineReducers({
     selectedTab: myTabBarReducer,//切换的Tab
     homeListObj: homeListReducer,//主页列表对象
     articleContent: articleContentReducer, //文章内容
     loginObj: loginReducer, //登录验证
-    favouriteList:favArticleReducer
+    favouriteList: favArticleReducer,//收藏列表
+    isFetching: fetchingReducer //全局异步fetching管理
 });
 
-//处理文章内容的Reducer(全局总是只有一篇文章详细展示);
-function articleContentReducer(articleContent = null, action) {
+
+//全局异步fetchingReduce
+function fetchingReducer({isFetching, fetchingNum} = {isFetching: false, fetchingNum: 0}, action) {
     switch (action.type) {
+        case ((action.type.match(/FETCH_REQUEST_.*/) || [])[0]):
+            return {
+                isFetching: true,
+                fetchingNum: fetchingNum + 1
+            };
+        case ((action.type.match(/(FETCH_SUCCESS_|FETCH_FAILED_).*/) || [])[0]):
+            return (fetchingNum == 1) ?
+            {
+                isFetching: false,
+                fetchingNum: fetchingNum - 1
+            }
+                :
+            {
+                isFetching:true,
+                fetchingNum:fetchingNum - 1
+            };
+        default:
+            return {isFetching, fetchingNum};
+    }
+}
+
+
+//处理文章内容的Reducer(全局总是只有一篇文章详细展示);
+function articleContentReducer(articleContent = {}, action) {
+    // let newArticleContent = Object.assign({}, articleContent, { thingToChange });
+    switch (action.type) {
+        case 'PRESS_HOME_ITEM':
+            return {};
         case 'FETCH_REQUEST_ARTICLE':
-            return null;
+            return {};
         case 'FETCH_SUCCESS_ARTICLE':
-            return articleContent = action.payload.data;
+            return action.payload.data;
         case 'FETCH_SUCCESS_ADD_FAVOURITE':
-            articleContent.is_collect=!articleContent.is_collect;
-            return articleContent;
+            return Object.assign({}, articleContent, {is_collect: !articleContent.is_collect});
         case 'FETCH_SUCCESS_REMOVE_FAVOURITE':
-            articleContent.is_collect=!articleContent.is_collect;
-            return articleContent;
+            return Object.assign({}, articleContent, {is_collect: !articleContent.is_collect});
         default :
-            return articleContent;
+            return Object.assign({}, articleContent);
     }
 }
 
@@ -47,8 +75,16 @@ function homeListReducer({homeDataList, isFetching, pageIndex, scrollTop, articl
             return {
                 homeDataList: homeDataList.concat(action.payload.data),
                 isFetching: false,
-                pageIndex:++pageIndex,
+                pageIndex: pageIndex+ 1,
                 scrollTop,
+                articleType
+            };
+        case 'FETCH_FAILED_TOPICS':
+            return {
+                homeDataList: homeDataList,
+                isFetching: false,
+                pageIndex: pageIndex - 1,
+                scrollTop: scrollTop,
                 articleType
             };
         case 'CHANGE_ARTICLE_TYPE':
@@ -76,25 +112,25 @@ function myTabBarReducer(selectedTab = 'indexTab', action) {
         case 'CHANGE_TAB':
             return action.payload.selectedTab;
         default:
-            return selectedTab;
+            return 'indexTab';
     }
 }
 
 //收藏页数据处理
-function favArticleReducer(favouriteList=[],action) {
-    switch (action.type){
+function favArticleReducer(favouriteList = [], action) {
+    switch (action.type) {
         case 'FETCH_REQUEST_FAVOURITELIST':
-            return favouriteList;
+            return [...favouriteList];
         case 'FETCH_SUCCESS_FAVOURITELIST':
             return action.payload.data;
         default:
-            return favouriteList;
+            return [...favouriteList];
     }
 }
 
 //处理登录状态的Reducer
 function loginReducer({isLogin, isLogining, accesstoken, successObj}={
-    isLogin: false,
+    isLogin: true,
     isLogining: false,
     accesstoken: '',
     successObj: null
@@ -102,21 +138,39 @@ function loginReducer({isLogin, isLogining, accesstoken, successObj}={
 
     switch (action.type) {
         case 'FETCH_REQUEST_LOGIN':
-            removeLocalItem('accesstoken');
             return {
-                isLogin,
+                isLogin: false,
                 isLogining: true,
                 accesstoken: action.param.accesstoken,
                 successObj
             };
         case 'FETCH_SUCCESS_LOGIN':
-            localItem('accesstoken',accesstoken);
+            console.log('进入登录状态');
+            localItem('accesstoken', action.param.accesstoken);
             return {
                 isLogin: true,
                 isLogining: false,
-                accesstoken,
+                accesstoken: action.param.accesstoken,
                 successObj: action.payload
-            }
+            };
+        case 'FETCH_FAILED_LOGIN':
+            console.log('进入无登录状态')
+            removeLocalItem('accesstoken');
+            return {
+                isLogin: false,
+                isLogining: false,
+                accesstoken: '',
+                successObj: null
+            };
+        case 'FETCH_REQUEST_LOGOUT':
+            removeLocalItem('accesstoken');
+            return {
+                isLogin: false,
+                isLogining: false,
+                accesstoken: '',
+                successObj: null
+            };
+
         default :
             return {
                 isLogin,

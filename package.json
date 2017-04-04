@@ -4,7 +4,7 @@
   "description": "learn harder!",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --quiet --compress --progress ",
     "build": "webpack -p"
   },
   "author": "Terry",

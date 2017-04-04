@@ -4,6 +4,7 @@ import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar';
 import {Button, Grid} from 'antd-mobile';
 import {connect} from 'react-redux';
+import Loading from '../common/Loading';
 import doFetch from '../../commonActions/fetch';
 import './FavTab.scss';
 
@@ -17,23 +18,32 @@ const data = Array.from(new Array(19)).map((_val, i) => ({
 class FavPage extends React.Component {
 
     componentDidMount() {
+        //如果是跳转到此页面并且是登录状态，加载一次数据
         if (this.props.loginObj.successObj) {
             this.props.getFav(this.props.loginObj.successObj.loginname)
         }
     }
 
     shouldComponentUpdate(nextProps, nextState) {
+        //如果是刷新页面时就在此页面，加载一次数据
+        if(this.props.loginObj.isLogining&&!nextProps.loginObj.isLogining){
+            if (nextProps.loginObj.successObj) {
+                this.props.getFav(nextProps.loginObj.successObj.loginname)
+            }
+        }
         return nextProps.favList.length!=0&&this.props.favList.length!=nextProps.favList.length;
     }
 
     render() {
         const {loginObj, favList} = this.props;
+
         const data = favList.map((item,index)=>({
             icon:item.author.avatar_url,
             text:item.title,
             id:item.id
         }))
         if (!loginObj.isLogin) {
+            console.log('favourite页面未登录状态渲染了一次');
             return (
                 <div>
                     <MyNavBarRedux page="favTab" titleName="收藏"/>
@@ -41,7 +51,18 @@ class FavPage extends React.Component {
                     <MyTabBarRedux page="favTab"/>
                 </div>
             )
-        } else {
+        }
+        else if(loginObj.isLogining||!loginObj.successObj||favList.length==0){
+            console.log('渲染Loading');
+            return(
+                <div>
+                    <MyNavBarRedux page="favTab" titleName="收藏"/>
+                    <Loading/>
+                    <MyTabBarRedux page="favTab"/>
+                </div>
+            )
+        }else {
+            console.log('favourite页面登录状态渲染了一次');
             return (
                 <div>
                     <MyNavBarRedux page="favTab" titleName="收藏"/>

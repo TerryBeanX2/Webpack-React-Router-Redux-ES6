@@ -20,12 +20,19 @@ const defineClickFunc = (loginObj, isCollect, add, remove,id)=> {
 
 
 class Article extends React.Component {
+    //渲染数据
     componentDidMount() {
         this.props.getArticleContent(`topic/${this.props.routeParams.id.slice(1)}`, 'get', {accesstoken: this.props.loginObj.accesstoken});
     }
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.isFetching&&!nextProps.isFetching;
+    }
     render() {
-        const {data, getArticleContent, loginObj, addFavourite, removeFavourite} = this.props;
-        if (!data) return (<div><MyNavBarRedux page="DetailPage" titleName="文章详情"/><Loading/></div>);
+        const {isFetching,data, getArticleContent, loginObj, addFavourite, removeFavourite} = this.props;
+        if (isFetching||!data.id){
+            console.log('渲染Loading')
+            return (<div><MyNavBarRedux page="DetailPage" titleName="文章详情"/><Loading/></div>);
+        }
         const replyList = data.replies.map((reply)=>(
             <div className="replyItem" data-flex="main:left cross:top" key={reply.id}
                  style={{width: widthRem - 0.4 + 'rem', padding: '0.2rem'}}>
@@ -38,13 +45,14 @@ class Article extends React.Component {
                 </div>
             </div>
         ))
+        console.log('Article页面渲染了一次');
         return (
             <div className="detailPage">
                 <MyNavBarRedux page="DetailPage" titleName="文章详情"/>
                 <div className="author">
                     <img className="avatar" src={data.author.avatar_url}/>
                     <span className="loginName">{data.author.loginname}</span>
-                    <span className="infoSpan">{articleType[data.tab]}</span>
+                    {data.tab?(<span className="infoSpan">{articleType[data.tab]}</span>):('')}
                     {data.good ? (<span className="infoSpan good">精华</span>) : ('')}
                     {data.top ? (<span className="infoSpan good">置顶</span>) : ('')}
                     <div className="rightInfo">
@@ -69,17 +77,16 @@ class Article extends React.Component {
 
 const ArticleRedux = connect((state)=>({
     data: state.articleContent,
-    loginObj: state.loginObj
+    loginObj: state.loginObj,
+    isFetching:state.isFetching.isFetching
 }), (dispatch)=>({
     getArticleContent: (url, type, json)=> {
         dispatch(doFetch(url, type, json, '_ARTICLE'))
     },
     addFavourite: (json)=> {
-        console.log(json)
         dispatch(doFetch('topic_collect/collect', 'post', json, '_ADD_FAVOURITE'));
     },
     removeFavourite: (json)=> {
-        console.log(json)
         dispatch(doFetch('topic_collect/de_collect', 'post', json, '_REMOVE_FAVOURITE'));
     }
 }))(Article);

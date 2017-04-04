@@ -3,7 +3,9 @@ import {hashHistory} from 'react-router';
 import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar';
 import {Button} from 'antd-mobile';
-
+import doFetch from '../../commonActions/fetch';
+import Loading from '../common/Loading';
+import './MyTab.scss';
 import {connect} from 'react-redux';
 class MyTab extends React.Component {
 
@@ -13,8 +15,9 @@ class MyTab extends React.Component {
     }
 
     render() {
-        const {loginObj} = this.props;
+        const {loginObj,logOut} = this.props;
         if(!loginObj.isLogin){
+            console.log('My页面未登录状态渲染了一次');
             return(
                 <div>
                     <MyNavBarRedux page="myTab" titleName="我的"/>
@@ -22,11 +25,22 @@ class MyTab extends React.Component {
                     <MyTabBarRedux page="myTab"/>
                 </div>
             )
-        }else{
+        }else if(loginObj.isLogining||!loginObj.successObj){
+            return(
+                <div>
+                    <MyNavBarRedux page="myTab" titleName="我的"/>
+                    <Loading/>
+                    <MyTabBarRedux page="myTab"/>
+                </div>
+            )
+        }
+        else{
+            console.log('My页面登录状态渲染了一次');
             return (
                 <div>
                     <MyNavBarRedux page="myTab" titleName="我的"/>
-                    <Button disabled  className="toLoginPage">装修中···</Button>
+                    <img className="myAvatar" src={loginObj.successObj.avatar_url} />
+                    <Button id="logOutBtn" onClick={()=>logOut()} className="toLoginPage">退出</Button>
                     <MyTabBarRedux page="myTab"/>
                 </div>
             )
@@ -36,6 +50,10 @@ class MyTab extends React.Component {
 
 const MyTabRedux = connect((state)=>({
     loginObj: state.loginObj
-}), (dispatch)=>({}))(MyTab);
+}), (dispatch)=>({
+    logOut:()=>{
+        {dispatch(doFetch('accesstoken','post',{accesstoken:''},'_LOGOUT'))}
+    }
+}))(MyTab);
 
 export default MyTabRedux;

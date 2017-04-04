@@ -5,6 +5,7 @@ import {MyNavBarRedux} from '../common/NavBar';
 import {Button} from 'antd-mobile';
 
 import {connect} from 'react-redux';
+import Loading from '../common/Loading';
 class MessageTab extends React.Component {
 
 
@@ -15,6 +16,7 @@ class MessageTab extends React.Component {
     render() {
         const {loginObj} = this.props;
         if(!loginObj.isLogin){
+            console.log('message页面未登录状态渲染了一次');
             return(
                 <div>
                     <MyNavBarRedux page="messageTab" titleName="消息"/>
@@ -22,7 +24,17 @@ class MessageTab extends React.Component {
                     <MyTabBarRedux page="messageTab"/>
                 </div>
             )
+        }
+        else if(loginObj.isLogining||!loginObj.successObj){
+            return(
+                <div>
+                    <MyNavBarRedux page="messageTab" titleName="消息"/>
+                    <Loading/>
+                    <MyTabBarRedux page="messageTab"/>
+                </div>
+            )
         }else{
+            console.log('message页面登录状态渲染了一次');
             return (
                 <div>
                     <MyNavBarRedux page="messageTab" titleName="消息"/>
