@@ -2,7 +2,7 @@
 webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
 
   妈妈前最近查出患了癌症，还好是早期，手术也很顺利。现在唯一的心愿就是妈妈早日康复。<br/>
-  清明节，足不出户，外卖养了我三天，我写了个CNode的react版本。<br/>
+  清明节，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
   二话不说，先上个作品地址，来扫码：<br/>
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima.png)<br/>
@@ -72,3 +72,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
       2、命令行 npm install 
       3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看
   
+  
+不要忘了点STAR！！！
+--------------
+这次很用心的做了一个作品，希望得到同仁们的肯定，不要吝啬你们的<b>Star</b>~快去点它！！！
