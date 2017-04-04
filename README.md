@@ -2,7 +2,10 @@
 webpack2+react+react-router+react-redux+ES6版本的Cnode
 
   清明节，我没有出门玩（我啥节也不出门），写了个CNode的DEMO。<br/>
-  二话不说，先上个DEMO地址，http://118.89.219.87/react-terry 贼慢的一个服务器，Gzip也开不起来，多等一会儿吧~<br/>
+  二话不说，先上个DEMO地址，http://118.89.219.87/react-terry<br/>
+  或者扫码：<br/>
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima.png)<br/>
+  贼慢的一个服务器，Gzip也开不起来，多等一会儿吧~<br/>
   首先感谢CNode提供的API，以及react china众多例子带来的想法。<br/>
   
   使用的技术栈：<br/>
@@ -20,4 +23,17 @@ webpack2+react+react-router+react-redux+ES6版本的Cnode
   4、消息页：(暂时没有实现消息功能)。<br/>
   5、我的：只提供了显示头像和退出功能。<br/>
   6、登录：实现了登录功能，没有登录的情况下，进入无权限的页面会跳转到登录页面。<br/>
-  7、其他：只对Iphone做了优化，没有考虑到android的情况，比如按需进行body滚动或局部滚动等等。<br/>
+  7、其他：Iphone体验良好，没有考虑android的情况，比如按需进行body滚动等等。<br/>
+  
+  
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1595.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1596.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1597.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1598.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1599.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1600.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1602.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1603.PNG)
+  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1604.PNG)
+  
+  
