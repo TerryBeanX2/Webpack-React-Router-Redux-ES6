@@ -1,15 +1,18 @@
 import {createStore,applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
-import doFetch from './actions/fetch';
+import config from './config/config';
+import doFetch from './commonActions/fetch';
+import {localItem} from './utils/myUtil';
 //组合之后的reducer
 import reducer from './reducers/reducers';
-//全局唯一的store
-let store = createStore(
+
+//全局唯一的store,挂在window上方便查看
+window.store = createStore(
     reducer,
     applyMiddleware(thunk)
 );
 
-//首屏初始数据
-store.dispatch(doFetch('http://cnodejs.org/api/v1/topics'));
+//初次加载验证登录
+window.store.dispatch(doFetch('accesstoken','post',{accesstoken:localItem('accesstoken')},'_LOGIN'));
 
-export default store;
+export default window.store;

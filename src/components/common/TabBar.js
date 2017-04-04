@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import {TabBar, Icon} from 'antd-mobile';
 import {connect} from 'react-redux';
-import { browserHistory } from 'react-router';
+import {hashHistory} from 'react-router';
 
 
 class MyTabBar extends React.Component {
@@ -24,7 +24,7 @@ class MyTabBar extends React.Component {
 
 
     render() {
-        const {selectedTab, changeTab} = this.props;
+        const {selectedTab, changeTab, page} = this.props;
         return (
             <TabBar
                 unselectedTintColor="#949494"
@@ -37,114 +37,114 @@ class MyTabBar extends React.Component {
                     icon={<div style={{
                         width: '0.44rem',
                         height: '0.44rem',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  0.42rem 0.42rem no-repeat'
-                    }}
-                    />
-                    }
+                        background: 'url(src/images/homePage1.svg) center center /  90% 90% no-repeat'
+                    }}/>}
                     selectedIcon={<div style={{
                         width: '0.44rem',
                         height: '0.44rem',
-                        background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  0.42rem 0.42rem no-repeat'
-                    }}
-                    />
-                    }
-                    badge={1}
-                    selected={selectedTab === 'indexTab'}
+                        background: 'url(src/images/homePage.svg) center center /  90% 90% no-repeat'
+                    }}/>}
+                    selected={page === 'indexTab'}
                     onPress={() => {
-                        changeTab('indexTab')
-                        browserHistory.push('/');
+
+                        changeTab('indexTab');
+                        hashHistory.push('/');
                     }}
                     data-seed="logId"
                 >
-                    {/*{this.renderContent('生活')}*/}
+                    {/*{this.renderContent('')}*/}
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={<Icon type="koubei-o" size="md"/>}
-                    selectedIcon={<Icon type="koubei" size="md"/>}
-                    title="收藏"
-                    key="收藏"
-                    badge={'new'}
-                    selected={selectedTab === 'favTab'}
-                    onPress={() => {
-                        changeTab('favTab')
-                        browserHistory.push('/404');
-                    }}
-                    data-seed="logId1"
-                >
-                    {/*{this.renderContent('口碑')}*/}
-                </TabBar.Item>
-                <TabBar.Item
-                    icon={
-                        <div style={{
+                    icon={<div style={{
+                        width: '0.44rem',
+                        height: '0.44rem',
+                        background: 'url(src/images/favPage1.svg) center center /  90% 90% no-repeat'
+                    }}/>}
+                    selectedIcon={<div style={{
+                        width: '0.44rem',
+                        height: '0.44rem',
+                        background: 'url(src/images/favPage.svg) center center /  90% 90% no-repeat'
+                    }}/>}
+                                       title="收藏"
+                                       key="收藏"
+                                       selected={page === 'favTab'}
+                                       onPress={() => {
+                                           changeTab('favTab');
+                                           hashHistory.push('/Fav');
+                                       }}
+                                       data-seed="logId1"
+                    >
+                        {/*{this.renderContent('')}*/}
+                    </TabBar.Item>
+                    < TabBar.Item
+                        icon={<div style={{
                             width: '0.44rem',
                             height: '0.44rem',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  0.42rem 0.42rem no-repeat'
-                        }}
-                        />
-                    }
-                    selectedIcon={
-                        <div style={{
+                            background: 'url(src/images/messagePage1.svg) center center /  90% 90% no-repeat'
+                        }}/>}
+                        selectedIcon={
+                            <div style={{
+                                width: '0.44rem',
+                                height: '0.44rem',
+                                background: 'url(src/images/messagePage.svg) center center /  90% 90% no-repeat'
+                            }}/>}
+                        title="消息"
+                        key="消息"
+                        dot
+                        selected={page === 'messageTab'}
+                        onPress={() => {
+                        changeTab('messageTab');
+                        hashHistory.push('/Message');
+                    }}
+                        >
+                    {/*{this.renderContent('')}*/}
+                        </TabBar.Item>
+                        <TabBar.Item
+                            icon={<div style={{
+                                width: '0.44rem',
+                                height: '0.44rem',
+                                background: 'url(src/images/myPage1.svg) center center /  90% 90% no-repeat'
+                            }}/>}
+                        selectedIcon={<div style={{
                             width: '0.44rem',
                             height: '0.44rem',
-                            background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  0.42rem 0.42rem no-repeat'
+                            background: 'url(src/images/myPage.svg) center center /  90% 90% no-repeat'
+                        }}/>}
+                        title="我的"
+                        key="我的"
+                        selected={page === 'myTab'}
+                        onPress={() => {
+                            changeTab('myTab');
+                            hashHistory.push('/My');
                         }}
-                        />
-                    }
-                    title="消息"
-                    key="消息"
-                    dot
-                    selected={selectedTab === 'messageTab'}
-                    onPress={() => {
-                        changeTab('messageTab')
-                    }}
-                >
-                    {/*{this.renderContent('朋友')}*/}
-                </TabBar.Item>
-                <TabBar.Item
-                    icon={{uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg'}}
-                    selectedIcon={{uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg'}}
-                    title="我的"
-                    key="我的"
-                    selected={selectedTab === 'myTab'}
-                    onPress={() => {
-                        changeTab('myTab')
-                    }}
-                >
-                    {/*{this.renderContent('我的')}*/}
-                </TabBar.Item>
-            </TabBar>
-        );
-    }
-}
+                        >
+                        {/*{this.renderContent('')}*/}
+                        </TabBar.Item>
+                        </TabBar>
+                        );
+                        }
+                }
 
-//约束类型
-MyTabBar.propTypes = {
-    selectedTab: PropTypes.string.isRequired,
-    changeTab: PropTypes.func.isRequired
-};
+                //约束类型
+                MyTabBar.propTypes={
+                    selectedTab: PropTypes.string.isRequired,
+                    changeTab: PropTypes.func.isRequired
+                };
 
-//事件创造器
-function actionCreate(witchTab) {
-    return {
-        type: 'CHANGE_TAB',
-        payload: {selectedTab: witchTab}
-    }
-}
+                //事件创造器
+                function actionCreate(witchTab) {
+                return {
+                type: 'CHANGE_TAB',
+                payload: {selectedTab: witchTab}
+            }
+            }
 
-//本组件的Reducer
-function MyTabBarReducer(selectedTab = 'indexTab', action) {
-    switch (action.type) {
-        case 'CHANGE_TAB':
-            return action.payload.selectedTab;
-        default:
-            return selectedTab;
-    }
-}
 
-//关联redux
-const MyTabBarRedux = connect((state)=>({selectedTab: state.selectedTab}), (dispatch)=>({changeTab: (witchTab) => dispatch(actionCreate(witchTab))}))(MyTabBar);
+                //关联redux
+                const
+                MyTabBarRedux=connect((state)=>({selectedTab: state.selectedTab}), (dispatch)=>({changeTab: (witchTab) => dispatch(actionCreate(witchTab))}))(MyTabBar);
 
-export {MyTabBarRedux, MyTabBarReducer}
+                export {MyTabBarRedux}
 
 
 //以上是简洁的写法，便于看我源码的人理解，下面贴出拆分的写法

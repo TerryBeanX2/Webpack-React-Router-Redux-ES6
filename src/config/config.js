@@ -1,4 +1,5 @@
 const config = {
-    target:'http://172.16.218.67:8080/api'
+    target:'http://cnodejs.org/api/v1/',
+    pageSize:20
 };
 export default config;

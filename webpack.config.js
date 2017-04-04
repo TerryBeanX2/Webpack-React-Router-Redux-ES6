@@ -8,7 +8,7 @@ const path = require('path');
 
 const svgDirs = [
     require.resolve('antd-mobile').replace(/warn\.js$/, ''),  // 1. 属于 antd-mobile 内置 svg 文件
-    // path.resolve(__dirname, 'src/my-project-svg-foler'),  // 2. 自己私人的 svg 存放目录
+    path.resolve(__dirname, 'src/images')  // 2. 自己私人的 svg 存放目录
 ];
 
 module.exports = {
@@ -58,7 +58,7 @@ module.exports = {
     },
     devServer: {
         contentBase: './',  //本地服务器所加载的页面所在的目录
-        host: 'localhost',
+        host: '192.168.1.111',
         port: 8888,
         historyApiFallback: true,  //不跳转
         inline: true,  //实时刷新
