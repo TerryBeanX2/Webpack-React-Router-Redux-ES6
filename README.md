@@ -4,9 +4,11 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   妈妈前最近查出患了癌症，还好是早期，手术也很顺利。现在唯一的心愿就是妈妈早日康复。<br/>
   清明节，足不出户，外卖养了我三天，我写了个CNode的react版本。<br/>
   二话不说，先上个作品地址，来扫码：<br/>
+  
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima.png)<br/>
+  
   借来的一个服务器，贼拉慢，Gzip也开不起来(不开Gzip加载速度慢了三倍以上)，多等一会儿吧~！<br/>
-  首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_three_react-redux.html)。<br/>
+  首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332)。<br/>
   
 使用的技术栈：
 ----------------
