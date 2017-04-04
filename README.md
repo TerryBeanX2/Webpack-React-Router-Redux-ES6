@@ -33,7 +33,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   
   5、虽然可以很快就实现初级的项目，开发过程中，完全不考虑操作DOM的体验虽然好，但也带来了许多可能的不必要的重复渲染，react配合redux非常需要注意性能，reducer处理不好，经常会重复渲染，理解react的运作方式很重要，零活运用shouldComponentUpdate来使你的页面性能达到最好，本身这就是一个挑战，再加上redux的参与，对开发者的大局观要求不低。经过一番努力，我才使所有的页面都禁止了不必要的渲染，这个优化我体现在了控制台里，你可以查看每页的渲染情况。<br/>
   
-  6、实现回到长列表的上次滚动位置，着实耗费了我不少时间，包括antd的ListView重复触发endReached事件问题，最终都解决了。<br/>
+  6、实现回到长列表的上次滚动位置，着实耗费了我不少时间，想了许多种实现方式，最终通过ListView的initialListSize属性配合缓存，实现了几乎媲美原生的回退到上次列表位置的效果。还有antd的ListView[重复触发又没有详细解答的onEndReached事件问题](https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596)，最终通过对异步的控制以及在render中做了一些非常规处理才解决。<br/>
   
   7、长列表的滚动延续动画无法控制，导致回到顶部功能总是有缺陷，我有很多想法，希望将来能实践，比如：屏蔽掉原生事件，自己用JS模拟，或者用translate模拟。 网上有很多长列表优化的文章，这个也是作为H5发开着需要着重研究的一个点，需要更深入的研究。也许在RN里能有更好的表现？所以，呃，研究RN势在必行。
   
