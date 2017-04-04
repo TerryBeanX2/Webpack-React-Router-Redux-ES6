@@ -34,16 +34,8 @@ class MyTabBar extends React.Component {
                 <TabBar.Item
                     title="首页"
                     key="首页"
-                    icon={<div style={{
-                        width: '0.44rem',
-                        height: '0.44rem',
-                        background: 'url(src/images/homePage1.svg) center center /  90% 90% no-repeat'
-                    }}/>}
-                    selectedIcon={<div style={{
-                        width: '0.44rem',
-                        height: '0.44rem',
-                        background: 'url(src/images/homePage.svg) center center /  90% 90% no-repeat'
-                    }}/>}
+                    icon={<Icon type={require('../../images/homePage1.svg')} size="md" />}
+                    selectedIcon={<Icon type={require('../../images/homePage.svg')} size="md" />}
                     selected={page === 'indexTab'}
                     onPress={() => {
 
@@ -55,16 +47,8 @@ class MyTabBar extends React.Component {
                     {/*{this.renderContent('')}*/}
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={<div style={{
-                        width: '0.44rem',
-                        height: '0.44rem',
-                        background: 'url(src/images/favPage1.svg) center center /  90% 90% no-repeat'
-                    }}/>}
-                    selectedIcon={<div style={{
-                        width: '0.44rem',
-                        height: '0.44rem',
-                        background: 'url(src/images/favPage.svg) center center /  90% 90% no-repeat'
-                    }}/>}
+                    icon={<Icon type={require('../../images/favPage1.svg')} size="md" />}
+                    selectedIcon={<Icon type={require('../../images/favPage.svg')} size="md" />}
                                        title="收藏"
                                        key="收藏"
                                        selected={page === 'favTab'}
@@ -77,17 +61,8 @@ class MyTabBar extends React.Component {
                         {/*{this.renderContent('')}*/}
                     </TabBar.Item>
                     < TabBar.Item
-                        icon={<div style={{
-                            width: '0.44rem',
-                            height: '0.44rem',
-                            background: 'url(src/images/messagePage1.svg) center center /  90% 90% no-repeat'
-                        }}/>}
-                        selectedIcon={
-                            <div style={{
-                                width: '0.44rem',
-                                height: '0.44rem',
-                                background: 'url(src/images/messagePage.svg) center center /  90% 90% no-repeat'
-                            }}/>}
+                        icon={<Icon type={require('../../images/messagePage1.svg')} size="md" />}
+                        selectedIcon={<Icon type={require('../../images/messagePage.svg')} size="md" />}
                         title="消息"
                         key="消息"
                         dot
@@ -100,16 +75,8 @@ class MyTabBar extends React.Component {
                     {/*{this.renderContent('')}*/}
                         </TabBar.Item>
                         <TabBar.Item
-                            icon={<div style={{
-                                width: '0.44rem',
-                                height: '0.44rem',
-                                background: 'url(src/images/myPage1.svg) center center /  90% 90% no-repeat'
-                            }}/>}
-                        selectedIcon={<div style={{
-                            width: '0.44rem',
-                            height: '0.44rem',
-                            background: 'url(src/images/myPage.svg) center center /  90% 90% no-repeat'
-                        }}/>}
+                            icon={<Icon type={require('../../images/myPage1.svg')} size="md" />}
+                        selectedIcon={<Icon type={require('../../images/myPage.svg')} size="md" />}
                         title="我的"
                         key="我的"
                         selected={page === 'myTab'}

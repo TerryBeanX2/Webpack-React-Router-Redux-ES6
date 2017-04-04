@@ -41,7 +41,7 @@ class Login extends React.Component{
                         value={this.state.userInput}
                     />
                 </List>
-                <Button className="toLoginPage" onClick={()=>doLogin('4b025888-831c-4dee-a6d6-ae90a62e3259')}>登录</Button>
+                <Button className="toLoginPage" onClick={()=>doLogin(this.state.userInput)}>登录</Button>
             </div>
         )
     }

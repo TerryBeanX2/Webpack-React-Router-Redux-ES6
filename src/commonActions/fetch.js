@@ -24,7 +24,7 @@ const doFetch = (url, type, data, getWhat) => (dispatch, getState) => {
     if (type == 'get') return fetch(`${config.target + url}?${query.slice(0, -1)}`).then(response=>response.json()).then(json=> {
         if (json.success)
             dispatch(endFetch(json, data, getWhat))
-    })
+    }).catch(e=>{})
     if (type == 'post') return fetch(`${config.target + url}`, {
         method: "POST",
         headers: {
@@ -41,7 +41,7 @@ const doFetch = (url, type, data, getWhat) => (dispatch, getState) => {
             })
         }
 
-    });
+    }).catch(e=>{});
 };
 
 export default doFetch;
