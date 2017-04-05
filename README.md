@@ -55,6 +55,9 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
     6、登录：实现了登录功能，没有登录的情况下，进入无权限的页面会跳转到登录页面。
     *、其他：首页长列表Iphone体验良好(回到顶部是缺陷)，没有考虑android的情况，比如按需进行body滚动等等。
     *、后期规划：不定期完善剩余功能，也有可能转战RN，下一步打算做一个思维导图，梳理一下架构思路。
+    *、已知问题1：模仿iOS回到顶部功能没实现，也没做按钮式的回到顶部；
+    *、已知问题2：移动4G情况下，CNode的API好像被墙了，导致数据加载不出来。
+    *、已知问题3：频繁的联网/断网后，可能会出现Bug，毕竟不是线上产品，暂时不处理。
     
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1595.PNG)
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/IMG_1596.PNG)
