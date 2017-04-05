@@ -9,7 +9,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   ~服务器是自己用node搭的，没开守护，挂掉莫怪，咩哈哈~
   
   首页加载还是有一些可以优化的地儿<b>耐心等一会儿吧~！</b><br/>
-  首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332)。<br/>
+  首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332),在核心逻辑上，我完全按照自己的思路实现。<br/>
   
 使用的技术栈：
 ----------------
