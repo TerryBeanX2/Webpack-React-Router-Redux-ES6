@@ -7,7 +7,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
   
-  借来的一个服务器，贼拉慢，Gzip也开不起来(不开Gzip加载速度慢了三倍以上)，<b>耐心等一会儿吧~！</b><br/>
+  首页加载还是有一些可以优化的地儿<b>耐心等一会儿吧~！</b><br/>
   首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332)。<br/>
   
 使用的技术栈：
@@ -37,7 +37,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   
   7、长列表的滚动延续动画无法控制，导致回到顶部功能总是有缺陷，我有很多想法，希望将来能实践，比如：屏蔽掉原生事件，自己用JS模拟，或者用translate模拟。 网上有很多长列表优化的文章，这个也是作为H5发开着需要着重研究的一个点，需要更深入的研究。也许在RN里能有更好的表现？所以，呃，研究RN势在必行。
   
-  8、老生常谈的首屏加载问题，在Gzip的淫威下，1.6M的bundle压缩后只有400多k，然后，webpack+react-router实现按需加载，在硬件不断进步的今天，越来越不是问题了，这已经是现实了，就像两年前我们还在担心有的老板想兼容IE6，如今淘宝都只支持IE9+了，我的梦想是，没有IE，哈哈哈哈。Gzip我是用webpack-dev-server开的，包括proxy也是用它开的，在开发角度来说，比ngnix还方便。以前用ngnix处理开发中的跨域，还要另外去动手(懒得不要不要的)。
+  8、老生常谈的首屏加载问题，在Gzip的淫威下，1.6M的bundle压缩后只有300多k，然后，webpack+react-router还能实现按需加载，在硬件不断进步的今天，越来越不是问题了，这已经是现实了，就像两年前我们还在担心有的老板想兼容IE6，如今淘宝都只支持IE9+了，我的梦想是，没有IE，哈哈哈哈。Gzip我是用webpack-dev-server开的，包括proxy也是用它开的，在开发角度来说，比ngnix还方便。以前用ngnix处理开发中的跨域，还要另外去动手(懒得不要不要的)。
   
   9、虽然英文水平可以勉强看英文文档，但无法像看中文文档那样自如浏览，一定程度上影响跟随国外优秀新版本技术的脚步，下一步也要强迫自己多贴近英文。<br/>
   
