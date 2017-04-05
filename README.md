@@ -69,8 +69,9 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   快速实现本地dev模式运行我的源码，三步走起：<br/>
   
       1、选择合适的空文件夹，打开你的git bash输入 git clone git@github.com:TerryBeanX2/Webpack-React-Router-Redux-ES6.git 克隆我的仓库；
-      2、命令行 npm install 
-      3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看
+      2、命令行 npm install ；
+      3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看 ；
+      *、如果出现问题，尝试cnpm淘宝镜像安装。
   
   
 希望得到你的STAR
