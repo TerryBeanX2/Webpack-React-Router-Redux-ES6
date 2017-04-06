@@ -80,8 +80,10 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
       *、如果出现问题，尝试cnpm淘宝镜像安装。
   
   
-2017.4.6更新实际项目思维导图（其实就是React+React-Router+React-Redux的架构流程图）
+2017.4.6更新实际项目思维导图
 --------------
+（其实就是React+React-Router+React-Redux的架构流程图）
+----------
 首先，我们来说为什么要用Redux<br/>
 
 ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/why-redux.jpg)<br/>
