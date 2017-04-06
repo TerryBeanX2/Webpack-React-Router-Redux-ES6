@@ -8,6 +8,8 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
   ~服务器是自己用node搭的，没开守护，挂掉莫怪，咩哈哈~
   
+  2017.4.6更新思维导图。
+  
   首页加载还是有一些可以优化的地儿<b>耐心等一会儿吧~！</b><br/>
   首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332),在核心逻辑上，我完全按照自己的思路实现。<br/>
   
@@ -77,6 +79,17 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
       3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看 ；
       *、如果出现问题，尝试cnpm淘宝镜像安装。
   
+  
+2017.4.6更新实际项目思维导图
+--------------
+首先，我们来说为什么要用Redux<br/>
+
+![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/why-redux.jpg)<br/>
+
+下面上本项目思维导图(看不清就点开看)<br/>
+
+![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/react-redux-real.jpg)<br/>
+
   
 希望得到你的STAR
 --------------
