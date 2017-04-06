@@ -6,7 +6,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   二话不说，先上个作品地址，来扫码：<br/>
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
-  ~服务器是自己用node搭的，没开守护，挂掉莫怪，咩哈哈~
+  ~静态服务器是自己用node搭的，没开守护，挂掉莫怪，咩哈哈~
   
   2017.4.6更新思维导图。
   
