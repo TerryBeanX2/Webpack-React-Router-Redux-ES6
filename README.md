@@ -86,7 +86,7 @@ webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
 
 ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/why-redux.jpg)<br/>
 
-下面上本项目思维导图(看不清就点开看)<br/>
+下面上本项目思维导图(看不清就点图->下个页面点那个Download按钮)<br/>
 
 ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/react-redux-real.jpg)<br/>
 
