@@ -1,0 +1,48 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Terry\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'dev' ]
+2 info using npm@4.0.3
+3 info using node@v7.7.4
+4 verbose run-script [ 'predev', 'dev', 'postdev' ]
+5 info lifecycle webpack-react-redux@1.0.0~predev: webpack-react-redux@1.0.0
+6 silly lifecycle webpack-react-redux@1.0.0~predev: no script for predev, continuing
+7 info lifecycle webpack-react-redux@1.0.0~dev: webpack-react-redux@1.0.0
+8 verbose lifecycle webpack-react-redux@1.0.0~dev: unsafe-perm in lifecycle true
+9 verbose lifecycle webpack-react-redux@1.0.0~dev: PATH: C:\Users\Terry\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;G:\Gweb\react-redux\node_modules\.bin;C:\jdk8.0\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\system32\wbem;C:\Program Files\Git\cmd;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Users\Terry\AppData\Roaming\npm\node_modules\cordova\bin;D:\android-sdk-windows\apache-ant-1.9.7\bin;D:\android-sdk-windows\platform-tools;D:\android-sdk-windows\tools;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\Program Files\TortoiseSVN\bin;C:\Program Files\VisualSVN Server\bin;C:\Program Files\nodejs\;C:\Ruby23\bin;C:\Ruby23-x64\bin;C:\Users\Terry\AppData\Local\Microsoft\WindowsApps;C:\Users\Terry\AppData\Roaming\npm
+10 verbose lifecycle webpack-react-redux@1.0.0~dev: CWD: G:\Gweb\react-redux
+11 silly lifecycle webpack-react-redux@1.0.0~dev: Args: [ '/d /s /c', 'webpack-dev-server --progress --compress' ]
+12 silly lifecycle webpack-react-redux@1.0.0~dev: Returned: code: 3221225786  signal: null
+13 info lifecycle webpack-react-redux@1.0.0~dev: Failed to exec dev script
+14 verbose stack Error: webpack-react-redux@1.0.0 dev: `webpack-dev-server --progress --compress`
+14 verbose stack Exit status 3221225786
+14 verbose stack     at EventEmitter.<anonymous> (C:\Users\Terry\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:194:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Users\Terry\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:194:7)
+14 verbose stack     at maybeClose (internal/child_process.js:899:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid webpack-react-redux@1.0.0
+16 verbose cwd G:\Gweb\react-redux
+17 error Windows_NT 10.0.14393
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Terry\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "run" "dev"
+19 error node v7.7.4
+20 error npm  v4.0.3
+21 error code ELIFECYCLE
+22 error webpack-react-redux@1.0.0 dev: `webpack-dev-server --progress --compress`
+22 error Exit status 3221225786
+23 error Failed at the webpack-react-redux@1.0.0 dev script 'webpack-dev-server --progress --compress'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the webpack-react-redux package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     webpack-dev-server --progress --compress
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs webpack-react-redux
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls webpack-react-redux
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
