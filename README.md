@@ -9,6 +9,9 @@
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
   静态服务器是node搭的，PM2开启守护，不用再担心挂掉了...
   
+#### 2017.4.27给自己立两个flag，不定期会更新：
+* 改造hashHistory为browserHistory，包括服务端都自己来配置。
+* 把react-router升级到4版本。
 #### 2017.4.6更新思维导图。
   
   首页加载还是有一些可以优化的地儿<b>耐心等一会儿吧~！</b><br/>
