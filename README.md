@@ -86,7 +86,7 @@
   
 2017.4.6更新实际项目思维导图
 --------------
-（其实就是React+React-Router+React-Redux的架构流程图）
+#### 其实就是React+React-Router+React-Redux的架构流程图实例版
 ----------
 首先，我们来说为什么要用Redux<br/>
 
