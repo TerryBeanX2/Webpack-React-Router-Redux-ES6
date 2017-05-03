@@ -24,4 +24,4 @@ server.app.get('*', function (req, res) {
 });
 
 //把IP地址改成你自己的，不知道改什么就localhost
-server.listen(8888,'172.16.218.67');
+server.listen(8888);

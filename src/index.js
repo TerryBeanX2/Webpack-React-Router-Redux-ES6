@@ -77,9 +77,16 @@ class Login extends React.Component {
 //     }
 // }
 //按需加载工作配置完毕============================================================================
-render(
-    (
-        <Provider store={store}>
+
+class Init extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        }
+    }
+
+    render() {
+        return (
             <Router>
                 <div>
                     <Route exact path="/" component={HomeListRedux}/>
@@ -90,6 +97,15 @@ render(
                     <Route path="/Login" component={Login}/>
                 </div>
             </Router>
+        )
+    }
+
+}
+
+render(
+    (
+        <Provider store={store}>
+            <Init/>
         </Provider>
     ), document.getElementById('app')
 );
