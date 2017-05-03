@@ -20,9 +20,9 @@ module.exports = {
     },
     output: {
         path: __dirname + '/build', //打包后的文件存放的地方
-        filename: '[name].bundle.js', //打包后输出文件的文件名
+        filename: '[name].[chunkhash:8].bundle.js', //打包后输出文件的文件名
         // publicPath:__dirname+'./public',
-        chunkFilename: '[name].[chunkhash:5].chunk.js'
+        chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
     },
     module: {
         rules: [
@@ -56,21 +56,21 @@ module.exports = {
             },
         ]
     },
-    devServer: {
-        contentBase: './',  //本地服务器所加载的页面所在的目录
-        host: 'localhost',
-        port: 8888,
-        historyApiFallback: true,  //不跳转
-        inline: true,  //实时刷新
-        proxy: {
-            '/api': {
-                target: 'https://cnodejs.org/api/v1',
-                secure: false,
-                changeOrigin: true,
-                host: 'cnodejs.org'
-            }
-        }
-    },
+    // devServer: {
+    //     contentBase: './',  //本地服务器所加载的页面所在的目录
+    //     host: 'localhost',
+    //     port: 8888,
+    //     historyApiFallback: true,  //不跳转
+    //     inline: true,  //实时刷新
+    //     proxy: {
+    //         '/api': {
+    //             target: 'https://cnodejs.org/api/v1',
+    //             secure: false,
+    //             changeOrigin: true,
+    //             host: 'cnodejs.org'
+    //         }
+    //     }
+    // },
     plugins: [
         new ExtractTextPlugin('main.css'),
         new webpack.LoaderOptionsPlugin({

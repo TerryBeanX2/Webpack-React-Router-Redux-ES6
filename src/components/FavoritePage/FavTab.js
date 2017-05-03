@@ -1,5 +1,4 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
 import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar';
 import {Button, Grid} from 'antd-mobile';
@@ -35,8 +34,7 @@ class FavPage extends React.Component {
     }
 
     render() {
-        const {loginObj, favList} = this.props;
-
+        const {loginObj, favList,history} = this.props;
         const data = favList.map((item,index)=>({
             icon:item.author.avatar_url,
             text:item.title,
@@ -46,9 +44,9 @@ class FavPage extends React.Component {
             console.log('favourite页面未登录状态渲染了一次');
             return (
                 <div>
-                    <MyNavBarRedux page="favTab" titleName="收藏"/>
-                    <Button className="toLoginPage" onClick={()=>hashHistory.push('/Login')}>去登录</Button>
-                    <MyTabBarRedux page="favTab"/>
+                    <MyNavBarRedux history={history} page="favTab" titleName="收藏"/>
+                    <Button className="toLoginPage" onClick={()=>history.push('/Login')}>去登录</Button>
+                    <MyTabBarRedux history={history} page="favTab"/>
                 </div>
             )
         }
@@ -56,18 +54,18 @@ class FavPage extends React.Component {
             console.log('渲染Loading');
             return(
                 <div>
-                    <MyNavBarRedux page="favTab" titleName="收藏"/>
+                    <MyNavBarRedux history={history} page="favTab" titleName="收藏"/>
                     <Loading/>
-                    <MyTabBarRedux page="favTab"/>
+                    <MyTabBarRedux history={history} page="favTab"/>
                 </div>
             )
         }else {
             console.log('favourite页面登录状态渲染了一次');
             return (
                 <div>
-                    <MyNavBarRedux page="favTab" titleName="收藏"/>
-                    <Grid data={data} columnNum={2} onClick={(_el, index) => hashHistory.push(`/article/:${_el.id}`)} />
-                    <MyTabBarRedux page="favTab"/>
+                    <MyNavBarRedux history={history} page="favTab" titleName="收藏"/>
+                    <Grid data={data} columnNum={2} onClick={(_el, index) => history.push(`/article/:${_el.id}`)} />
+                    <MyTabBarRedux history={history} page="favTab"/>
                 </div>
             )
         }

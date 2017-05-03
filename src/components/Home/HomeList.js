@@ -1,7 +1,6 @@
 import {ListView} from 'antd-mobile';
 import React from 'react';
 import {connect} from 'react-redux';
-import {hashHistory} from 'react-router';
 import './HomeList.scss';
 import doFetch from '../../commonActions/fetch';
 import {formatDate, localItem, removeLocalItem} from '../../utils/myUtil';
@@ -78,7 +77,7 @@ class HomeList extends React.Component {
 
     //ListView 稍微复杂 看不懂的去这里 https://mobile.ant.design/components/list-view/ 然后再去这里 http://www.jianshu.com/p/1293bb8ac969
     render() {
-        const {isFetching, selectedTab, homeListObj, indexListNextPage,getNewArticleDetail} = this.props;
+        const {history,isFetching, selectedTab, homeListObj, indexListNextPage,getNewArticleDetail} = this.props;
         //特殊处理一下判断fetching，一次渲染后只允许拿一次新数据
         let nowFetching = isFetching;
         if (!homeListObj.homeDataList.length) {
@@ -104,7 +103,7 @@ class HomeList extends React.Component {
             return (
                 <div key={rowID} className="homeListItem" data-flex="main:left cross:center" onClick={()=> {
                     getNewArticleDetail();
-                    hashHistory.push('article/:' + rowData.id)
+                    history.push('article/:' + rowData.id)
                 }}>
                     <div className="author">
                         <img className="authorAvatar" src={rowData.author.avatar_url}/>
@@ -167,9 +166,9 @@ class HomeList extends React.Component {
         console.log('主页渲染了一次');
         return (
             <div>
-                <MyNavBarRedux page="indexTab" titleName="首页"/>
+                <MyNavBarRedux history={history} page="indexTab" titleName="首页"/>
                 {main}
-                <MyTabBarRedux page="indexTab"/>
+                <MyTabBarRedux history={history} page="indexTab"/>
             </div>
         );
     }

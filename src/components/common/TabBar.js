@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import {TabBar, Icon} from 'antd-mobile';
 import {connect} from 'react-redux';
-import {hashHistory} from 'react-router';
 
 
 class MyTabBar extends React.Component {
@@ -24,7 +23,7 @@ class MyTabBar extends React.Component {
 
 
     render() {
-        const {selectedTab, changeTab, page} = this.props;
+        const {selectedTab, changeTab, page,history} = this.props;
         return (
             <TabBar
                 unselectedTintColor="#949494"
@@ -34,84 +33,84 @@ class MyTabBar extends React.Component {
                 <TabBar.Item
                     title="首页"
                     key="首页"
-                    icon={<Icon type={require('../../images/homePage1.svg')} size="md" />}
-                    selectedIcon={<Icon type={require('../../images/homePage.svg')} size="md" />}
+                    icon={<Icon type={require('../../images/homePage1.svg')} size="md"/>}
+                    selectedIcon={<Icon type={require('../../images/homePage.svg')} size="md"/>}
                     selected={page === 'indexTab'}
                     onPress={() => {
 
                         changeTab('indexTab');
-                        hashHistory.push('/');
+                        history.push('/');
                     }}
                     data-seed="logId"
                 >
                     {/*{this.renderContent('')}*/}
                 </TabBar.Item>
                 <TabBar.Item
-                    icon={<Icon type={require('../../images/favPage1.svg')} size="md" />}
-                    selectedIcon={<Icon type={require('../../images/favPage.svg')} size="md" />}
-                                       title="收藏"
-                                       key="收藏"
-                                       selected={page === 'favTab'}
-                                       onPress={() => {
-                                           changeTab('favTab');
-                                           hashHistory.push('/Fav');
-                                       }}
-                                       data-seed="logId1"
-                    >
-                        {/*{this.renderContent('')}*/}
-                    </TabBar.Item>
-                    < TabBar.Item
-                        icon={<Icon type={require('../../images/messagePage1.svg')} size="md" />}
-                        selectedIcon={<Icon type={require('../../images/messagePage.svg')} size="md" />}
-                        title="消息"
-                        key="消息"
-                        dot
-                        selected={page === 'messageTab'}
-                        onPress={() => {
-                        changeTab('messageTab');
-                        hashHistory.push('/Message');
+                    icon={<Icon type={require('../../images/favPage1.svg')} size="md"/>}
+                    selectedIcon={<Icon type={require('../../images/favPage.svg')} size="md"/>}
+                    title="收藏"
+                    key="收藏"
+                    selected={page === 'favTab'}
+                    onPress={() => {
+                        changeTab('favTab');
+                        history.push('/Fav');
                     }}
-                        >
+                    data-seed="logId1"
+                >
                     {/*{this.renderContent('')}*/}
-                        </TabBar.Item>
-                        <TabBar.Item
-                            icon={<Icon type={require('../../images/myPage1.svg')} size="md" />}
-                        selectedIcon={<Icon type={require('../../images/myPage.svg')} size="md" />}
-                        title="我的"
-                        key="我的"
-                        selected={page === 'myTab'}
-                        onPress={() => {
-                            changeTab('myTab');
-                            hashHistory.push('/My');
-                        }}
-                        >
-                        {/*{this.renderContent('')}*/}
-                        </TabBar.Item>
-                        </TabBar>
-                        );
-                        }
-                }
+                </TabBar.Item>
+                < TabBar.Item
+                    icon={<Icon type={require('../../images/messagePage1.svg')} size="md"/>}
+                    selectedIcon={<Icon type={require('../../images/messagePage.svg')} size="md"/>}
+                    title="消息"
+                    key="消息"
+                    dot
+                    selected={page === 'messageTab'}
+                    onPress={() => {
+                        changeTab('messageTab');
+                        history.push('/Message');
+                    }}
+                >
+                    {/*{this.renderContent('')}*/}
+                </TabBar.Item>
+                <TabBar.Item
+                    icon={<Icon type={require('../../images/myPage1.svg')} size="md"/>}
+                    selectedIcon={<Icon type={require('../../images/myPage.svg')} size="md"/>}
+                    title="我的"
+                    key="我的"
+                    selected={page === 'myTab'}
+                    onPress={() => {
+                        changeTab('myTab');
+                        history.push('/My');
+                    }}
+                >
+                    {/*{this.renderContent('')}*/}
+                </TabBar.Item>
+            </TabBar>
+        );
+    }
+}
 
-                //约束类型
-                MyTabBar.propTypes={
-                    selectedTab: PropTypes.string.isRequired,
-                    changeTab: PropTypes.func.isRequired
-                };
+//约束类型
+MyTabBar.propTypes = {
+    selectedTab: PropTypes.string.isRequired,
+    changeTab: PropTypes.func.isRequired
+};
 
-                //事件创造器
-                function actionCreate(witchTab) {
-                return {
-                type: 'CHANGE_TAB',
-                payload: {selectedTab: witchTab}
-            }
-            }
+//事件创造器
+function actionCreate(witchTab) {
+    return {
+        type: 'CHANGE_TAB',
+        payload: {selectedTab: witchTab}
+    }
+}
 
 
-                //关联redux
-                const
-                MyTabBarRedux=connect((state)=>({selectedTab: state.selectedTab}), (dispatch)=>({changeTab: (witchTab) => dispatch(actionCreate(witchTab))}))(MyTabBar);
+//关联redux
+const
+    MyTabBarRedux = connect((state)=>({selectedTab: state.selectedTab}), (dispatch)=>({changeTab: (witchTab) => dispatch(actionCreate(witchTab))}))(MyTabBar);
 
-                export {MyTabBarRedux}
+export {MyTabBarRedux}
 
 
 //以上是简洁的写法，便于看我源码的人理解，下面贴出拆分的写法

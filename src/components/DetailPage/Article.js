@@ -6,13 +6,13 @@ import {MyNavBarRedux} from '../../components/common/NavBar';
 import {articleType} from '../../components/Home/HomeList';
 import {formatDate} from '../../utils/myUtil';
 import Loading from '../common/Loading';
-import {hashHistory} from 'react-router';
+import config from '../../config/config'
 const widthRem = document.documentElement.clientWidth / parseInt(document.documentElement.style.fontSize);
 
 
-const defineClickFunc = (loginObj, isCollect, add, remove,id)=> {
+const defineClickFunc = (history,loginObj, isCollect, add, remove,id)=> {
     if (!loginObj.isLogin) {
-        hashHistory.push('/Login')
+        history.push('/Login')
     }
     const json = {accesstoken:loginObj.accesstoken,topic_id :id};
     return isCollect ? remove(json) :add(json)
@@ -22,13 +22,13 @@ const defineClickFunc = (loginObj, isCollect, add, remove,id)=> {
 class Article extends React.Component {
     //渲染数据
     componentDidMount() {
-        this.props.getArticleContent(`topic/${this.props.routeParams.id.slice(1)}`, 'get', {accesstoken: this.props.loginObj.accesstoken});
+        this.props.getArticleContent(`topic/${this.props.match.params.id.slice(1)}`, 'get', {accesstoken: this.props.loginObj.accesstoken});
     }
     shouldComponentUpdate(nextProps, nextState) {
         return this.props.isFetching&&!nextProps.isFetching;
     }
     render() {
-        const {isFetching,data, getArticleContent, loginObj, addFavourite, removeFavourite} = this.props;
+        const {isFetching,data, getArticleContent, loginObj, addFavourite, removeFavourite,history} = this.props;
         if (isFetching||!data.id){
             console.log('渲染Loading')
             return (<div><MyNavBarRedux page="DetailPage" titleName="文章详情"/><Loading/></div>);
@@ -48,7 +48,7 @@ class Article extends React.Component {
         console.log('Article页面渲染了一次');
         return (
             <div className="detailPage">
-                <MyNavBarRedux page="DetailPage" titleName="文章详情"/>
+                <MyNavBarRedux history={history} page="DetailPage" titleName="文章详情"/>
                 <div className="author">
                     <img className="avatar" src={data.author.avatar_url}/>
                     <span className="loginName">{data.author.loginname}</span>
@@ -62,7 +62,7 @@ class Article extends React.Component {
                     </div>
                 </div>
                 <div style={{width: widthRem - 0.4 + 'rem', padding: '0.2rem'}} className="title">{data.title}</div>
-                <div className="collect" onClick={()=>defineClickFunc(loginObj,data.is_collect,addFavourite,removeFavourite,data.id)}
+                <div className="collect" onClick={()=>defineClickFunc(history,loginObj,data.is_collect,addFavourite,removeFavourite,data.id)}
                      style={{background: data.is_collect ? 'rgba(6, 8, 9, 0.5)' : 'green'}}>{data.is_collect ? '取消收藏' : '收藏'}</div>
                 <div className="markdown-body" style={{
                     width: widthRem - 0.2 + 'rem',

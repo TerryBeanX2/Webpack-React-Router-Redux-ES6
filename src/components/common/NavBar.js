@@ -1,18 +1,13 @@
 import React from 'react';
 import {Popover, NavBar, Icon} from 'antd-mobile';
 import {connect} from 'react-redux';
-import {hashHistory} from 'react-router';
 import doFetch from '../../commonActions/fetch';
 import config from '../../config/config'
 const Item = Popover.Item;
 
-class ReturnButton extends React.Component {
-    render() {
-        return (
-            <div>返回</div>
-        )
-    }
-}
+const ReturnButton = () =>(
+    <div>返回</div>
+);
 
 class MyNavBar extends React.Component {
     constructor(props, context) {
@@ -30,26 +25,29 @@ class MyNavBar extends React.Component {
 
     handleVisibleChange(visible) {
         this.setState({
-            visible,
+            visible
         });
     };
 
     returnTop() {
         setTimeout(()=> {
-            if(document.getElementsByClassName('homeList')[0])
-            document.getElementsByClassName('homeList')[0].scrollTop = 0;
+            if (document.getElementsByClassName('homeList')[0])
+                document.getElementsByClassName('homeList')[0].scrollTop = 0;
         }, 100)
 
     }
 
     render() {
-        const {homeListObj, changeArticleType, page, titleName} = this.props;
+        const {homeListObj, changeArticleType, page, titleName, history} = this.props;
         let offsetX = -10; // just for pc demo
         if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
             offsetX = -26;
         }
         return (<div>
-            <NavBar leftContent={page === 'DetailPage'||page==='LoginPage' ? (<ReturnButton />) : ''} onLeftClick={()=>{hashHistory.goBack()}}
+            <NavBar leftContent={page === 'DetailPage' || page === 'LoginPage' ? (<ReturnButton />) : ''}
+                    onLeftClick={()=> {
+                        history.goBack()
+                    }}
                     iconName={false} mode="light"
                     rightContent={
                         page === 'indexTab' ? (

@@ -1,5 +1,4 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
 import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar';
 import {Button} from 'antd-mobile';
@@ -15,22 +14,22 @@ class MyTab extends React.Component {
     }
 
     render() {
-        const {loginObj,logOut} = this.props;
+        const {loginObj,logOut,history} = this.props;
         if(!loginObj.isLogin){
             console.log('My页面未登录状态渲染了一次');
             return(
                 <div>
-                    <MyNavBarRedux page="myTab" titleName="我的"/>
-                    <Button className="toLoginPage" onClick={()=>hashHistory.push('/Login')}>去登录</Button>
-                    <MyTabBarRedux page="myTab"/>
+                    <MyNavBarRedux history={history} page="myTab" titleName="我的"/>
+                    <Button className="toLoginPage" onClick={()=>history.push('/Login')}>去登录</Button>
+                    <MyTabBarRedux history={history} page="myTab"/>
                 </div>
             )
         }else if(loginObj.isLogining||!loginObj.successObj){
             return(
                 <div>
-                    <MyNavBarRedux page="myTab" titleName="我的"/>
+                    <MyNavBarRedux history={history} page="myTab" titleName="我的"/>
                     <Loading/>
-                    <MyTabBarRedux page="myTab"/>
+                    <MyTabBarRedux history={history} page="myTab"/>
                 </div>
             )
         }
@@ -38,10 +37,10 @@ class MyTab extends React.Component {
             console.log('My页面登录状态渲染了一次');
             return (
                 <div>
-                    <MyNavBarRedux page="myTab" titleName="我的"/>
+                    <MyNavBarRedux history={history} page="myTab" titleName="我的"/>
                     <img className="myAvatar" src={loginObj.successObj.avatar_url} />
                     <Button id="logOutBtn" onClick={()=>logOut()} className="toLoginPage">退出</Button>
-                    <MyTabBarRedux page="myTab"/>
+                    <MyTabBarRedux history={history} page="myTab"/>
                 </div>
             )
         }

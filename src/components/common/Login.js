@@ -3,7 +3,6 @@ import {MyNavBarRedux} from './NavBar';
 import {connect} from 'react-redux';
 import doFetch from '../../commonActions/fetch';
 import {Button,InputItem,List} from 'antd-mobile';
-import {hashHistory} from 'react-router';
 import { createForm } from 'rc-form';
 
 class Login extends React.Component{
@@ -22,16 +21,16 @@ class Login extends React.Component{
 
     componentDidUpdate(){
         if(this.props.loginObj.isLogin){
-            hashHistory.goBack();
+            this.props.history.goBack();
         }
     }
 
     render(){
-        const {loginObj,doLogin} = this.props;
+        const {loginObj,doLogin,history} = this.props;
         const { getFieldProps } = this.props.form;
         return(
             <div>
-                <MyNavBarRedux titleName="登录" page="LoginPage" />
+                <MyNavBarRedux history={history} titleName="登录" page="LoginPage" />
                 <List renderHeader={() => '获取Accesstoken方法：CNode登录=>设置=>最下方'}>
                     <InputItem
                         {...getFieldProps('input3')}

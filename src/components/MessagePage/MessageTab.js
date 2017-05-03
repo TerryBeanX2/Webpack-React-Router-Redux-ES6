@@ -1,5 +1,4 @@
 import React from 'react';
-import {hashHistory} from 'react-router';
 import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar';
 import {Button} from 'antd-mobile';
@@ -14,32 +13,32 @@ class MessageTab extends React.Component {
     }
 
     render() {
-        const {loginObj} = this.props;
+        const {loginObj,history} = this.props;
         if(!loginObj.isLogin){
             console.log('message页面未登录状态渲染了一次');
             return(
                 <div>
-                    <MyNavBarRedux page="messageTab" titleName="消息"/>
-                    <Button className="toLoginPage" onClick={()=>hashHistory.push('/Login')}>去登录</Button>
-                    <MyTabBarRedux page="messageTab"/>
+                    <MyNavBarRedux history={history} page="messageTab" titleName="消息"/>
+                    <Button className="toLoginPage" onClick={()=>history.push('/Login')}>去登录</Button>
+                    <MyTabBarRedux history={history} page="messageTab"/>
                 </div>
             )
         }
         else if(loginObj.isLogining||!loginObj.successObj){
             return(
                 <div>
-                    <MyNavBarRedux page="messageTab" titleName="消息"/>
+                    <MyNavBarRedux history={history} page="messageTab" titleName="消息"/>
                     <Loading/>
-                    <MyTabBarRedux page="messageTab"/>
+                    <MyTabBarRedux history={history} page="messageTab"/>
                 </div>
             )
         }else{
             console.log('message页面登录状态渲染了一次');
             return (
                 <div>
-                    <MyNavBarRedux page="messageTab" titleName="消息"/>
+                    <MyNavBarRedux history={history} page="messageTab" titleName="消息"/>
                     <Button disabled  className="toLoginPage">装修中···</Button>
-                    <MyTabBarRedux page="messageTab"/>
+                    <MyTabBarRedux history={history} page="messageTab"/>
                 </div>
             )
         }
