@@ -81,6 +81,7 @@ render(
     (
         <Provider store={store}>
             {/*如果路径不对，请修改basename为你想要的，或者直接删除basename属性*/}
+            {/*<Router basename="/react-t">*/}
             <Router>
                 <div>
                     <Route exact path="/" component={HomeListRedux}/>
