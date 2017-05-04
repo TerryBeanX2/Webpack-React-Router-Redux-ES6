@@ -1,4 +1,4 @@
-import {createStore,applyMiddleware} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import config from './config/config';
 import doFetch from './commonActions/fetch';
@@ -12,9 +12,8 @@ window.store = createStore(
     applyMiddleware(thunk)
 );
 
-
 //初次加载验证登录
-window.store.dispatch(doFetch('accesstoken','post',{accesstoken:localItem('accesstoken')},'_LOGIN'));
+window.store.dispatch(doFetch('accesstoken', 'post', {accesstoken: localItem('accesstoken')}, '_LOGIN'));
 
 
 export default window.store;
