@@ -11,6 +11,8 @@
   
 #### 2017.5.4完成react-router版本4的升级，以及使用browserHistrory的线上部署。
 * 本地开发调试请在config里切回hash路由，不然刷新会有问题，线上部署browserHistory需要服务器配合，我也把配合逻辑的node代码上传，文件名server.js。
+* 微信内需要用域名，我没弄域名，所以线上还是改回使用hash路由以便观看。
+
 #### 2017.4.27给自己立两个flag，不定期会更新：
 * 改造hashHistory为browserHistory，包括服务端都自己来配置。
 * 把react-router升级到4版本。
