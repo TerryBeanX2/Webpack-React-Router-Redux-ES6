@@ -87,11 +87,11 @@
       3、命令行 npm run dev ，浏览器访问 localhost:8888 ，F12进入移动开发模式查看 ；
       *、如果出现问题，尝试cnpm淘宝镜像安装。
   
-  
+
 2017.4.6更新实际项目思维导图
 --------------
-#### 其实就是React+React-Router+React-Redux的架构流程图实例版
-----------
+##### 其实就是React+React-Router+React-Redux的架构流程图实例版
+
 首先，我们来说为什么要用Redux<br/>
 
 ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/why-redux.jpg)<br/>
@@ -100,7 +100,5 @@
 
 ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/react-redux-real.jpg)<br/>
 
-  
-希望得到你的STAR
---------------
+####希望得到你的STAR
 这次很用心的做了一个作品，希望得到同仁们的肯定，不要吝啬你们的<b>Star</b> ~怎么还不点~ 一定要点呀
