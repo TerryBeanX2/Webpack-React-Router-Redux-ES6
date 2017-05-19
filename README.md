@@ -100,5 +100,5 @@
 
 ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/react-redux-real.jpg)<br/>
 
-####希望得到你的STAR
+#### 希望得到你的STAR
 这次很用心的做了一个作品，希望得到同仁们的肯定，不要吝啬你们的<b>Star</b> ~怎么还不点~ 一定要点呀
