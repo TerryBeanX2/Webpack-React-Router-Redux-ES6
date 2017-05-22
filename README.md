@@ -1,14 +1,13 @@
 # webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
 
-  妈妈前最近查出患了癌症，还好是早期，手术也很顺利。现在唯一的心愿就是妈妈早日康复。<br/>
-  (4.17手术拆线，朝着痊愈稳步前进)<br>
-  (4.26术后化疗第一天，白疗方案，一切顺利)<br>
-  清明节，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
-  二话不说，先上个作品地址，来扫码：<br/>
+  妈妈前一阵查出患了癌症，还好是早期，手术也很顺利，目前在术后化疗。现在唯一的心愿就是妈妈早日康复。<br/>
+  小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
+  二话不说，先上个作品地址，请体验一下，来扫码：<br/>
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
   静态服务器是node搭的，PM2开启守护，不用再担心挂掉了...
   
+#### 2017.5.22针对首屏加载白屏加入loading动画，提升体验。
 #### 2017.5.4完成react-router版本4的升级，以及使用browserHistrory的线上部署。
 * 本地开发调试请在config里切回hash路由，不然刷新会有问题，线上部署browserHistory需要服务器配合，我也把配合逻辑的node代码上传，文件名server.js。
 * 微信内需要用域名，我没弄域名，所以线上还是改回使用hash路由以便观看。
