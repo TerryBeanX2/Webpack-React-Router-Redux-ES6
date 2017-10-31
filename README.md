@@ -1,8 +1,6 @@
 # webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
-
-  妈妈前一阵查出患了癌症，还好是早期，手术也很顺利，目前在术后化疗。现在唯一的心愿就是妈妈早日康复。<br/>
   
-  小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
+  清明小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
   
   二话不说，先上个作品地址，请体验一下，来扫码：<br/>
   
