@@ -5,7 +5,7 @@
   二话不说，先上个作品地址，请体验一下，来扫码：<br/>
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
-  静态服务器是node搭的，PM2开启守护，不用再担心挂掉了...
+  静态服务器是node搭的，PM2开启守护，不用再担心挂掉了...(2018年1月停掉了服务器，想预览只能自己本地看了)
   
 更新进度：
 ----------------
