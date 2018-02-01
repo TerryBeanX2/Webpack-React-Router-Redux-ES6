@@ -1,6 +1,6 @@
 # webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   
-  清明小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
+  2017清明小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
   
   二话不说，先上个作品地址，请体验一下，来扫码：<br/>
   
