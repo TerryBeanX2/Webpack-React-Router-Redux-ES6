@@ -12,7 +12,7 @@ const svgDirs = [
 ];
 
 module.exports = {
-    devtool: 'eval',
+    // devtool: 'eval',
     entry: {
         app: [
             __dirname + '/src/index.js' //唯一入口文件
