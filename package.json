@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node dev-server",
-    "prod": "webpack -p NODE_ENV=prodction",
-    "pre":"webpack -p NODE_ENV=pre-production"
+    "prod": " NODE_ENV=prodction webpack -p",
+    "pre":" NODE_ENV=pre-production webpack -p"
   },
   "author": "Terry",
   "license": "MIT",

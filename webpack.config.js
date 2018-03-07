@@ -11,12 +11,8 @@ const svgDirs = [
     path.resolve(__dirname, 'src/images')  // 2. 自己私人的 svg 存放目录
 ];
 
-if(process.env.NODE_ENV === 'production'){
-    console.log('生产环境')
-}
-if(process.env.NODE_ENV === 'pre-production'){
-    console.log('预生产环境')
-}
+
+console.log(process.env.NODE_ENV);
 
 module.exports = {
     // devtool: 'eval',
