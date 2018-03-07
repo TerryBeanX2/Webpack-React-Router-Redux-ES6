@@ -61,7 +61,7 @@ class HomeList extends React.Component {
         }
         returnTop(this);
         console.log('wowowo')
-        if (process.env.NODE_ENV === 'production') {
+        if (true) {
 
                 console.log('生产环境代码');
 
