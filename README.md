@@ -1,26 +1,28 @@
 # webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
-
-  妈妈前一阵查出患了癌症，还好是早期，手术也很顺利，目前在术后化疗。现在唯一的心愿就是妈妈早日康复。<br/>
   
-  小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
+  2017清明小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
   
   二话不说，先上个作品地址，请体验一下，来扫码：<br/>
   
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
-  静态服务器是node搭的，PM2开启守护，不用再担心挂掉了...
+  静态服务器是node搭的，PM2开启守护
   
 更新进度：
 ----------------
-#### 2017.7.13入职新公司半个月了，一直在用Vue做项目...更新个小tip，IOS上，只要body滚动，点击顶部栏会自动实现回到顶部呦。
-#### 2017.5.22针对首屏加载白屏加入loading动画，提升体验。
-#### 2017.5.4完成react-router版本4的升级，以及使用browserHistrory的线上部署。
+#### 2018.2.1 年前实践一版ReactNative的Cnode社区，立flag，最迟二月底提交第一版源码(意味着过年也要敲代码2333)。
+#### 2017.10.30 划重点: 由于是半年前的久远项目，今天起正式停更，新bug可能会处理得很慢，或者不再处理。本项目对react入门还是有些参考价值的，主要是做一个项目的思路，所有项目都基本是相通的(react全家桶/vue全家桶)。
+
+#### 2017.10.27 更新个小Tip，webpack的配置中，devtool在打包的时候一定不能用eval等相关的配置项，打出来的包会很大，虽然一些cli已经帮我们做好了这类的工作，但是还是需要了解的。我曾经没有注意过这个问题导致打包出来的js体积比正常的大出了近4倍！
+#### 2017.7.13 更新个小tip，IOS上，只要body滚动，点击顶部栏会自动实现回到顶部呦。
+#### 2017.5.22 针对首屏加载白屏加入loading动画，提升体验。
+#### 2017.5.4 完成react-router版本4的升级，以及使用browserHistrory的线上部署。
 * 本地开发调试请在config里切回hash路由，不然刷新会有问题，线上部署browserHistory需要服务器配合，我也把配合逻辑的node代码上传，文件名server.js。
 * 微信内需要用域名，我没弄域名，所以线上还是改回使用hash路由以便观看。
 
-#### 2017.4.27给自己立两个flag，不定期会更新：
+#### 2017.4.27 给自己立两个flag，不定期会更新：
 * 改造hashHistory为browserHistory，包括服务端都自己来配置。
 * 把react-router升级到4版本。
-#### 2017.4.6更新思维导图。
+#### 2017.4.6 更新思维导图。
   
   首页加载还是有一些可以优化的地儿<b>耐心等一会儿吧~！</b><br/>
   首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332),在核心逻辑上，我完全按照自己的思路实现。<br/>
