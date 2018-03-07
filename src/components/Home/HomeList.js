@@ -8,7 +8,7 @@ import config from '../../config/config'
 import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar'
 import Loading from '../common/Loading';
-import prodUtil from '../../utils/prodctionUtil';
+// import prodUtil from '../../utils/prodctionUtil';
 
 const articleType = {
     'share': '分享',
@@ -17,6 +17,17 @@ const articleType = {
     'good': '精华',
     'all': '全部'
 };
+let printFun;
+
+if (process.env.NODE_ENV === 'production') {
+    printFun = () => {
+        console.log('生产环境代码');
+    }
+} else {
+    printFun = () => {
+        console.log('非生产环境代码');
+    }
+}
 
 //滚动到记录的位置方法
 const returnTop = (con) => {
@@ -58,7 +69,7 @@ class HomeList extends React.Component {
             })
         }
         returnTop(this);
-        prodUtil.printFun();
+        printFun();
     }
 
     //返回记录滚动位置三件套2-针对浏览器返回按钮情况：
