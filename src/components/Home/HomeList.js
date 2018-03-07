@@ -8,7 +8,7 @@ import config from '../../config/config'
 import {MyTabBarRedux} from '../common/TabBar';
 import {MyNavBarRedux} from '../common/NavBar'
 import Loading from '../common/Loading';
-
+import prodUtil from '../../utils/prodctionUtil';
 
 const articleType = {
     'share': '分享',
@@ -19,7 +19,7 @@ const articleType = {
 };
 
 //滚动到记录的位置方法
-const returnTop = (con)=> {
+const returnTop = (con) => {
     if (localItem('scrollPosition')) {
         //这个回滚对象我写的比较放飞自我，一般可以用类名获取等方法
         if (!con.refs.lv) return;
@@ -58,9 +58,7 @@ class HomeList extends React.Component {
             })
         }
         returnTop(this);
-        if(process.env.NODE_EVN === 'production'){
-            console.log('生产环境')
-        }
+        prodUtil.printFun();
     }
 
     //返回记录滚动位置三件套2-针对浏览器返回按钮情况：
@@ -75,12 +73,12 @@ class HomeList extends React.Component {
 
     //优化性能，避免多次重复渲染，只根据关心的数据选择是否渲染,这里比较随意
     shouldComponentUpdate(nextProps, nextState) {
-        return (this.props.homeListObj.homeDataList.length !=nextProps.homeListObj.homeDataList.length)||(this.props.homeListObj.articleType != nextProps.homeListObj.articleType )|| (this.props.homeListObj.pageIndex != nextProps.homeListObj.pageIndex);
+        return (this.props.homeListObj.homeDataList.length != nextProps.homeListObj.homeDataList.length) || (this.props.homeListObj.articleType != nextProps.homeListObj.articleType ) || (this.props.homeListObj.pageIndex != nextProps.homeListObj.pageIndex);
     }
 
     //ListView 稍微复杂 看不懂的去这里 https://mobile.ant.design/components/list-view/ 然后再去这里 http://www.jianshu.com/p/1293bb8ac969
     render() {
-        const {history,isFetching, selectedTab, homeListObj, indexListNextPage,getNewArticleDetail} = this.props;
+        const {history, isFetching, selectedTab, homeListObj, indexListNextPage, getNewArticleDetail} = this.props;
         //特殊处理一下判断fetching，一次渲染后只允许拿一次新数据
         let nowFetching = isFetching;
         if (!homeListObj.homeDataList.length) {
@@ -104,7 +102,7 @@ class HomeList extends React.Component {
         );
         const row = (rowData, rowID) => {
             return (
-                <div key={rowID} className="homeListItem" data-flex="main:left cross:center" onClick={()=> {
+                <div key={rowID} className="homeListItem" data-flex="main:left cross:center" onClick={() => {
                     getNewArticleDetail();
                     history.push('article/:' + rowData.id)
                 }}>
@@ -139,8 +137,8 @@ class HomeList extends React.Component {
                           renderFooter={() => <div style={{padding: 30, textAlign: 'center'}}>
                               {homeListObj.isFetching ? '加载中...' : '加载完毕,继续滑也许还有？'}
                           </div>}
-                          renderRow={(rowData, sectionId, rowId)=>row(rowData, rowId)}
-                          renderSeparator={(sectionId, rowId)=>separator(rowId)}
+                          renderRow={(rowData, sectionId, rowId) => row(rowData, rowId)}
+                          renderSeparator={(sectionId, rowId) => separator(rowId)}
                           className="homeList"
                           id="homeList"
                           style={{
@@ -152,7 +150,7 @@ class HomeList extends React.Component {
                           pageSize={20}
                           scrollRenderAheadDistance={2000}
                           scrollEventThrottle={30}
-                          onEndReached={(e)=> {
+                          onEndReached={(e) => {
                               if (!e || nowFetching)return;
                               indexListNextPage('topics', 'get', {
                                   page: homeListObj.pageIndex,
@@ -179,16 +177,16 @@ class HomeList extends React.Component {
 
 
 //关联redux
-const HomeListRedux = connect((state)=>({
+const HomeListRedux = connect((state) => ({
     homeListObj: state.homeListObj,
     selectedTab: state.selectedTab,
     isFetching: state.isFetching.isFetching
-}), (dispatch)=>({
-    indexListNextPage: (url, type, json,isFetching)=> {
+}), (dispatch) => ({
+    indexListNextPage: (url, type, json, isFetching) => {
         dispatch(doFetch(url, type, json, '_TOPICS'))
     },
-    getNewArticleDetail:()=>{
-        dispatch({type:'PRESS_HOME_ITEM'})
+    getNewArticleDetail: () => {
+        dispatch({type: 'PRESS_HOME_ITEM'})
     }
 }))(HomeList);
 
