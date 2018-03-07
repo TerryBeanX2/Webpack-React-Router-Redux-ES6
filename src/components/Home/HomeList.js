@@ -19,15 +19,6 @@ const articleType = {
 };
 let printFun;
 
-if (process.env.NODE_ENV === 'production') {
-    printFun = () => {
-        console.log('生产环境代码');
-    }
-} else {
-    printFun = () => {
-        console.log('非生产环境代码');
-    }
-}
 
 //滚动到记录的位置方法
 const returnTop = (con) => {
@@ -69,6 +60,15 @@ class HomeList extends React.Component {
             })
         }
         returnTop(this);
+        if (process.env.NODE_ENV === 'production') {
+            printFun = () => {
+                console.log('生产环境代码');
+            }
+        } else {
+            printFun = () => {
+                console.log('非生产环境代码');
+            }
+        }
         printFun();
     }
 
