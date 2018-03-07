@@ -60,6 +60,7 @@ class HomeList extends React.Component {
             })
         }
         returnTop(this);
+        console.log('wowowo')
         if (process.env.NODE_ENV === 'production') {
 
                 console.log('生产环境代码');
@@ -69,6 +70,7 @@ class HomeList extends React.Component {
                 console.log('非生产环境代码');
 
         }
+        console.log('hahaha')
     }
 
     //返回记录滚动位置三件套2-针对浏览器返回按钮情况：
