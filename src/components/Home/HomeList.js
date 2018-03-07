@@ -58,6 +58,9 @@ class HomeList extends React.Component {
             })
         }
         returnTop(this);
+        if(process.env.NODE_EVN === 'production'){
+            console.log('生产环境')
+        }
     }
 
     //返回记录滚动位置三件套2-针对浏览器返回按钮情况：
