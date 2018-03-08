@@ -1,4 +1,4 @@
-# webpack2+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
+# webpack3+react+react-router+react-redux+ES6+antd-mobile版本的Cnode
   
   2017清明小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
   
@@ -7,9 +7,15 @@
   ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
   静态服务器是node搭的，PM2开启守护
   
+  可改进而未做处理的部分(玩具项目懒得弄了)：图片懒加载、异步加载组件，代码规范没用eslint等约束。
+  另，缓存优化在本地模拟进行的，我的线上服务器比较渣(阿里云免费半年那个)，玩起来太慢了。
+  
 更新进度：
 ----------------
-#### 2018.2.1 年前实践一版ReactNative的Cnode社区，立flag，最迟二月底提交第一版源码(意味着过年也要敲代码2333)。
+
+#### 2018.3.8 业务代码已经有一阵子没动了，一年前的代码懒得动了...最近的精力放在项目构建的层面，以及缓存优化(包括自己鼓捣jenkins啥的)，晒一张图表示我的优化成果~ 300多k的bundle被拆分，代码库的代码每次不会更新，大大提高性能~
+![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/WX20180308-144129%402x.png)<br/>
+#### 2018.2.1 年前实践一版ReactNative的Cnode社区，立flag，最迟二月底提交第一版源码(意味着过年也要敲代码2333)。ps:已打脸。
 #### 2017.10.30 划重点: 由于是半年前的久远项目，今天起正式停更，新bug可能会处理得很慢，或者不再处理。本项目对react入门还是有些参考价值的，主要是做一个项目的思路，所有项目都基本是相通的(react全家桶/vue全家桶)。
 
 #### 2017.10.27 更新个小Tip，webpack的配置中，devtool在打包的时候一定不能用eval等相关的配置项，打出来的包会很大，虽然一些cli已经帮我们做好了这类的工作，但是还是需要了解的。我曾经没有注意过这个问题导致打包出来的js体积比正常的大出了近4倍！
