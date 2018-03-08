@@ -4,7 +4,7 @@
   "description": "learn harder!",
   "main": "index.js",
   "scripts": {
-    "dev": "node dev-server",
+    "dev": "node dev-server --harmony",
     "prod": " NODE_ENV=prodction webpack -p",
     "pre": " NODE_ENV=pre-productionwebpack -p"
   },
