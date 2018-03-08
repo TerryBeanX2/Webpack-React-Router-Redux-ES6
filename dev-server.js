@@ -19,9 +19,9 @@ var server = new WebpackDevServer(webpack(config), {
 });
 
 //将其他路由，全部返回index.html
-server.app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/index.html')
-});
+// server.app.get('*', function (req, res) {
+//     res.sendFile(__dirname + '/index.html')
+// });
 
 //把IP地址改成你自己的，不知道改什么就localhost
 server.listen(8787);
