@@ -23,9 +23,9 @@ module.exports = {
     },
     output: {
         path: __dirname + '/build', //打包后的文件存放的地方
-        filename: '[name].[chunkhash:8].bundle.js', //打包后输出文件的文件名
+        filename: '[name].[chunkhash:8].js', //打包后输出文件的文件名
         // publicPath:__dirname+'/public',
-        chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
+        chunkFilename: '[name]-[id].[chunkhash:8].js'
     },
     module: {
         rules: [
@@ -93,7 +93,20 @@ module.exports = {
             filename: './index.html', //生成的html存放路径，相对于 path
             template: './src/templates/index.html', //html模板路径
             hash: true,    //为静态资源生成hash值
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks(module) {
+                // any required modules inside node_modules are extracted to vendor
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        }),
+        // extract webpack runtime and module manifest to its own file in order to
+        // prevent vendor hash from being updated whenever app bundle is updated
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            minChunks: Infinity
+        }),
     ],
     resolve: {
         modules: ['node_modules', path.join(__dirname, '../node_modules')],
