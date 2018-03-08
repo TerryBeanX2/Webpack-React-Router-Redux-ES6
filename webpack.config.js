@@ -14,8 +14,9 @@ const svgDirs = [
 
 console.log(process.env.NODE_ENV);
 
-module.exports = {
-    // devtool: 'eval',
+
+let conf = {
+    devtool: 'eval',
     entry: {
         app: [
             __dirname + '/src/index.js' //唯一入口文件
@@ -75,7 +76,11 @@ module.exports = {
     //     }
     // },
     plugins: [
-        new ExtractTextPlugin('main.css'),
+        new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
+            filename: './index.html', //生成的html存放路径，相对于 path
+            template: './src/templates/index.html', //html模板路径
+            hash: true,    //为静态资源生成hash值
+        }),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: function () {
@@ -89,27 +94,41 @@ module.exports = {
                 }
             }
         }),
-        new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
-            filename: './index.html', //生成的html存放路径，相对于 path
-            template: './src/templates/index.html', //html模板路径
-            hash: true,    //为静态资源生成hash值
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            minChunks(module) {
-                // any required modules inside node_modules are extracted to vendor
-                return module.context && module.context.indexOf('node_modules') !== -1;
-            }
-        }),
-        // extract webpack runtime and module manifest to its own file in order to
-        // prevent vendor hash from being updated whenever app bundle is updated
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest',
-            minChunks: Infinity
-        }),
+        new ExtractTextPlugin('main.css'),
     ],
     resolve: {
         modules: ['node_modules', path.join(__dirname, '../node_modules')],
-        extensions: [ '.web.js', '.js', '.json'],
+        extensions: ['.web.js', '.js', '.json'],
     },
 };
+
+let prodConf;
+
+if (process.env.NODE_ENV) {
+    prodConf = {
+        devtool: 'cheap-source-map',
+        plugins: [
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'vendor',
+                minChunks(module) {
+                    // any required modules inside node_modules are extracted to vendor
+                    if (module.resource) console.log(module.resource)
+                    return (module.resource &&
+                    /\.js$/.test(module.resource) &&
+                    module.resource.indexOf(
+                        path.join(__dirname, './node_modules')
+                    ) === 0);
+                }
+            }),
+            // extract webpack runtime and module manifest to its own file in order to
+            // prevent vendor hash from being updated whenever app bundle is updated
+            new webpack.optimize.CommonsChunkPlugin({
+                name: 'manifest',
+                minChunks: Infinity
+            })
+        ]
+    }
+    conf = Object.assign({},conf,prodConf)
+}
+
+module.exports = conf;

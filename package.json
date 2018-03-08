@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node dev-server",
     "prod": " NODE_ENV=prodction webpack -p",
-    "pre":" NODE_ENV=pre-production webpack -p"
+    "pre": " NODE_ENV=pre-productionwebpack -p"
   },
   "author": "Terry",
   "license": "MIT",
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "antd-mobile": "^1.0.7",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "es6-promise": "^4.1.0",
     "flex.css": "^1.1.6",
     "isomorphic-fetch": "^2.2.1",
