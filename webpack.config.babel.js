@@ -121,6 +121,10 @@ if (process.env.NODE_ENV) {
         name: 'manifest',
         minChunks: Infinity
     }));
+
+    conf = {
+        ...conf
+    }
 }
 
 module.exports = conf;

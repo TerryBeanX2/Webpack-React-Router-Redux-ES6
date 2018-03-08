@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
-var config = require('./webpack.config');
+var config = require('./webpack.config.babel');
 
 // 相当于通过本地node服务代理请求到了http://cnodejs.org/api
 var proxy = [{
