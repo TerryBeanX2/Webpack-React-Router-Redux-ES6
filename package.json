@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node dev-server --harmony",
     "prod": " NODE_ENV=prodction webpack -p",
-    "pre": " NODE_ENV=pre-productionwebpack -p"
+    "pre": " NODE_ENV=pre-production webpack -p"
   },
   "author": "Terry",
   "license": "MIT",
