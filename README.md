@@ -29,7 +29,8 @@
 * 改造hashHistory为browserHistory，包括服务端都自己来配置。
 * 把react-router升级到4版本。
 #### 2017.4.6 更新思维导图。
-  
+#### 2017.3.31 开始搞
+
   首页加载还是有一些可以优化的地儿<b>耐心等一会儿吧~！</b><br/>
   首先感谢CNode提供的API，以及react china众多例子，特别是精品区置顶第二个帖子狼族小狈带来的[例子](http://react-china.org/t/webpack-react-react-router-redux-less-flex-css-es6-react-cnode/6332),在核心逻辑上，我完全按照自己的思路实现。<br/>
   
