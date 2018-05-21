@@ -2,9 +2,8 @@
   
   2017清明小长假，足不出户，北京的外卖养了我三天，我写了个CNode的react版本。<br/>
   
-  二话不说，先上个作品地址，请体验一下，来扫码：<br/>
-  
-  ![img](https://github.com/TerryBeanX2/Webpack-React-Router-Redux-ES6/blob/imgBranch/egImg/erweima1.png)<br/>
+  二话不说，先上个作品地址，请体验一下，地址如下(自己的https，浏览器会提示不安全，请选择信任)：<br/>
+  https://39.106.208.247:8888
   静态服务器是node搭的，PM2开启守护
   
   可改进而未做处理的部分(玩具项目懒得弄了)：图片懒加载、异步加载组件，代码规范没用eslint等约束。
