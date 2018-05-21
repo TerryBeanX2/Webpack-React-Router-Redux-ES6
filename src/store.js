@@ -13,7 +13,7 @@ window.store = createStore(
 );
 
 //初次加载验证登录
-window.store.dispatch(doFetch('accesstoken', 'post', {accesstoken: localItem('accesstoken')}, '_LOGIN'));
+localItem('accesstoken') && window.store.dispatch(doFetch('accesstoken', 'post', {accesstoken: localItem('accesstoken')}, '_LOGIN'));
 
 
 export default window.store;

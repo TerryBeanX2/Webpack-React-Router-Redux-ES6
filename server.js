@@ -12,7 +12,7 @@ var compression = require('compression');
 var express = require('express');
 var app = express();
 app.use(compression());
-app.use(express.static(__dirname + '/build/'));
+app.use(express.static(__dirname + '/dist/'));
 // 创建服务端
 
 var httpsServer = https.createServer(options,app);
