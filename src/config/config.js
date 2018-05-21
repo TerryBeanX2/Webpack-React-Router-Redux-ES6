@@ -3,7 +3,7 @@
 //使用哈希路由
 import {HashRouter as Router} from 'react-router-dom'
 const config = {
-    target:'http://cnodejs.org/api/v1/',
+    target:'https://cnodejs.org/api/v1/',
     pageSize:20,
     Router:Router
 };
