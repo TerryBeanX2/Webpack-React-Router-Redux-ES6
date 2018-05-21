@@ -130,7 +130,7 @@ function favArticleReducer(favouriteList = [], action) {
 
 //处理登录状态的Reducer
 function loginReducer({isLogin, isLogining, accesstoken, successObj}={
-    isLogin: true,
+    isLogin: false,
     isLogining: false,
     accesstoken: '',
     successObj: null
