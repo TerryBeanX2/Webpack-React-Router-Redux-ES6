@@ -25,8 +25,8 @@ app.get('/',function(req,res,next){
     res.send('Hello Express+https');
 });
 //https监听3000端口
-httpsServer.listen(8883);
+httpsServer.listen(8888);
 //http监听3001端口
-httpServer.listen(8884);
+httpServer.listen(8887);
 
 console.log('listen')
